@@ -14,7 +14,23 @@ const MyProfile = () => {
     router.push(`/update-prompt?id=${post._id}`);
   };
 
-  const handleDelete = async () => {};
+  const handleDelete = async (post) => {
+    const hasConfirmed = confirm("Are you sure you want to delete it ?");
+
+    if (hasConfirmed) {
+      try {
+        await fetch(`/api/prompt/${post._id.toString()}`, {
+          method: "DELETE",
+        });
+        const filterPost = posts.filter((p) => p._id !== post._id);
+
+        setPosts(filterPost);
+        return alert("your post has deleted.");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {

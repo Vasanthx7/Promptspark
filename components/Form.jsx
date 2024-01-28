@@ -25,12 +25,9 @@ const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
             className="form_textarea"
           />
         </label>
-        <label>
+        <label className="pt-3">
           <span className="text-gray-700 font-satoshi font-semibold text-base">
-            Tag{" "}
-            <span className="font-normal">
-              (#Product,#webdevelopment,#idea)
-            </span>
+            Tags{" "}
           </span>
           <textarea
             value={post.tag}
@@ -38,7 +35,7 @@ const Form = ({ type, post, submitting, setPost, handleSubmit }) => {
             className="form_input"
           />
         </label>
-        <div className="flex-end mx-3 mb-5 gap-4">
+        <div className="flex-end ml-3 my-5 gap-4">
           <Link href="/" className="text-gray-500 text-sm">
             Cancel
           </Link>
